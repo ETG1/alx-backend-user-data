@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Flask app for user authentication and session management.
-Provides endpoints for user registration, login, logout, 
+Provides endpoints for user registration, login, logout,
 profile access, and password reset functionality.
 """
 
@@ -11,6 +11,7 @@ from auth import Auth  # Importing the Auth class for authentication logic
 AUTH = Auth()  # Initialize the Auth class instance for user handling
 
 app = Flask(__name__)  # Initialize the Flask app
+
 
 @app.route('/', methods=['GET'])
 def index() -> str:
@@ -33,7 +34,7 @@ def users() -> str:
     Form Data:
         - email: User's email (string)
         - password: User's password (string)
-    
+
     Returns:
         JSON response with user's email and success message or error message.
     """
@@ -58,7 +59,7 @@ def login() -> str:
     Form Data:
         - email: User's email (string)
         - password: User's password (string)
-    
+
     Returns:
         JSON response indicating login success and sets session cookie.
         If login is invalid, returns a 401 error.
@@ -123,7 +124,7 @@ def get_reset_password_token() -> str:
 
     Form Data:
         - email: User's email (string)
-    
+
     Returns:
         JSON response with the reset token if email is valid.
         If email is not found, returns a 403 error.
